@@ -5,41 +5,41 @@ import java.util.Date;
 import com.huawei.gnoc.invas.core.utils.Variable;
 import com.huawei.gnoc.invas.webcore.model.IUser;
 
-public class User extends Variable implements IUser{
+public class User extends Variable implements IUser {
 	private static final long serialVersionUID = 1151688727782846577L;
-	private long userId;
-	private String userName;
-	private String userPwd;
-	private int pwdErrCnt;
-	private int lockFlag;
-	private Date createTime;
-	private Date modifyTime;
-	private Date lastLoginTime;
-	private long orgId;
+
 	public long getUserId() {
 		Object obj = super.get(IUser.USER_ID);
-		return (Long)obj;
+		return (Long) obj;
 	}
+
 	public String getUserName() {
-		return userName;
+		return (String) super.get(IUser.USER_NAME);
 	}
+
 	public String getUserPwd() {
-		return userPwd;
+		return (String)super.getValString(IUser.PASSWORD);
 	}
+
 	public int getPwdErrCnt() {
-		return pwdErrCnt;
+		return (int) super.getValInt(IUser.PWD_ERR_CNT);
 	}
+
 	public int getLockFlag() {
-		return lockFlag;
+		
+		return (int) super.getValInt(IUser.LOCK_FLAG);
 	}
+
 	public Date getCreateTime() {
-		return createTime;
+		return (Date)super.get(IUser.CREATE_TIME);
 	}
+
 	public Date getModifyTime() {
-		return modifyTime;
+		return (Date)super.get(IUser.MODIFY_TIME);
 	}
+
 	public Date getLastLoginTime() {
-		return lastLoginTime;
+		return (Date)super.get(IUser.LAST_LOGIN_TIME);
 	}
-	
+
 }

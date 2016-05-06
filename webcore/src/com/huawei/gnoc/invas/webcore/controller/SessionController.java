@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.huawei.gnoc.invas.webcore.dao.IUserDao;
 import com.huawei.gnoc.invas.webcore.model.IUser;
 

@@ -7,14 +7,7 @@
 
 	<select id="getUserByName" parameterType="String" resultType="user">  
         <![CDATA[ 
-            SELECT USER_ID userId,
-                   USER_NAME userName,
-                   USER_PWD userPwd,
-                   pwd_err_cnt pwdErrCnt,
-                   lock_flag  lockFlag,
-                   create_time createTime,
-                   modify_time modifyTime,
-                   last_login_time lastLoginTime
+            SELECT *
               from admin_user
              where USER_NAME=#{userName}
         ]]>
