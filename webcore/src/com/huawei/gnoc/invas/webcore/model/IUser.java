@@ -1,6 +1,6 @@
 package com.huawei.gnoc.invas.webcore.model;
 
-import java.util.Date;
+import com.huawei.gnoc.invas.core.exception.BasicException;
 
 public interface IUser {
 	public static final String USER_ID = "USER_ID";
@@ -12,12 +12,15 @@ public interface IUser {
 	public static final String MODIFY_TIME = "MODIFY_TIME";
 	public static final String LAST_LOGIN_TIME = "LAST_LOGIN_TIME";
 	
+	public static final String STATUS_LOCK = "Locked";
+	public static final String STATUS_UNLOCK = "Active";
+	
 	public long getUserId();
-	public String getUserName();
-	public String getUserPwd();
+	public String getUserName() throws BasicException;
+	public String getUserPwd() throws BasicException;
 	public int getPwdErrCnt();
-	public int getLockFlag();
-	public Date getCreateTime();
-	public Date getModifyTime();
-	public Date getLastLoginTime();
+	public String getLockFlag();
+	public String getCreateTime()throws BasicException;
+	public String getModifyTime()throws BasicException;
+	public String getLastLoginTime()throws BasicException;
 }

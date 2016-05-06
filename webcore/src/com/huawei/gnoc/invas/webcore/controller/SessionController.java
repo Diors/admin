@@ -23,7 +23,7 @@ public class SessionController extends AbstractSessionController{
 
 	@RequestMapping(value = "login.do")
 	@ResponseBody
-	public Map<String,String> login(HttpServletRequest request ) throws IOException {
+	public Map<String,String> login(HttpServletRequest request ) throws IOException, Exception {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password").toUpperCase();
 		IUser user = userDao.getUserByName(username);

@@ -7,9 +7,13 @@ import java.util.Date;
 import com.huawei.gnoc.invas.core.exception.BasicException;
 
 public class Util {
-	private static final String DEFAULT_DATE_FROMAT = "yyyy-mm-dd hh:mi:ss";
+	private static final String DEFAULT_DATE_FROMAT = "yyyy-MM-dd hh:mm:ss";
+	private static final String STRING_EMPTY="";
 
-	public static String parseString(Object value) {
+	public static String parseString(Object value) throws BasicException {
+		if(value == null){
+			return STRING_EMPTY;
+		}
 		if (value instanceof String) {
 			return (String) value;
 		}
@@ -41,4 +45,6 @@ public class Util {
 		}
 		throw new BasicException("SYS-1001","Can not parse value to long.");
 	}
+	
+	
 }

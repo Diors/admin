@@ -20,14 +20,7 @@
 	<select id="selectSomeUsers" parameterType="map" resultType="user">
 	 <![CDATA[ 
 	      SELECT * FROM 
-            (SELECT USER_ID userId,
-                   USER_NAME userName,
-                   USER_PWD userPwd,
-                   pwd_err_cnt pwdErrCnt,
-                   lock_flag  lockFlag,
-                   create_time createTime,
-                   modify_time modifyTime,
-                   last_login_time lastLoginTime,
+            (SELECT admin_user.*,
                    ROW_NUMBER() OVER() AS rownum
               from admin_user) AS T
            WHERE T.ROWNUM >= ${floor} and T.ROWNUM < ${roof}

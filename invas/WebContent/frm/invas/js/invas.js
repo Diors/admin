@@ -54,7 +54,7 @@ $(function() {
 	});
 });
 
-/*
+
 $(function() {
 	$(".finalMenu").each(function() {
 		$(this).click(function(event) {
@@ -67,4 +67,3 @@ $(function() {
 		});
 	});
 });
-*/

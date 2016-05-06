@@ -2,6 +2,8 @@ package com.huawei.gnoc.invas.core.utils;
 
 import java.util.HashMap;
 
+import com.huawei.gnoc.invas.core.exception.BasicException;
+
 public class Variable extends HashMap<Object, Object> {
 	private static final long serialVersionUID = 2059742436122455261L;
 
@@ -19,7 +21,7 @@ public class Variable extends HashMap<Object, Object> {
 		}
 	}
 	
-	public String getValString(Object key){
+	public String getValString(Object key) throws BasicException{
 		Object val = super.get(key);
 		return Util.parseString(val);
 	}
@@ -28,4 +30,6 @@ public class Variable extends HashMap<Object, Object> {
 		Object val = super.get(key);
 		return Util.parseInt(val);
 	}
+	
+	
 }
