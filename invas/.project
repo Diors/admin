@@ -4,6 +4,8 @@
 	<comment></comment>
 	<projects>
 		<project>admin</project>
+		<project>core</project>
+		<project>webcore</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

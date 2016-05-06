@@ -11,14 +11,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.huawei.gnoc.invas.admin.dao.UserDao;
-import com.huawei.gnoc.invas.admin.model.User;
+import com.huawei.gnoc.invas.webcore.dao.IUserDao;
+import com.huawei.gnoc.invas.webcore.model.IUser;
+import com.huawei.gnoc.invas.webcore.model.impl.User;
 
 @Controller
 public class UserMgtController {
 
 	@Autowired
-	private UserDao userDao;
+	private IUserDao userDao;
 
 	@RequestMapping(value = "admin/usermgt/siderbar.do")
 	private String enterAddUserPage() {
@@ -41,10 +42,12 @@ public class UserMgtController {
 		Map param = new HashMap();
 		param.put("floor", iSegment*(iPageNumber-1));
 		param.put("roof", iSegment*iPageNumber);
-		List<User> list = userDao.selectSomeUsers(param);
+		List<IUser> list = userDao.selectSomeUsers(param);
 		ModelAndView modelAndView = new ModelAndView("admin/allUserInfo");
 		modelAndView.addObject("userlist", list);
 		modelAndView.addObject("count", list.size());
 		return modelAndView;
 	}
+	
+	
 }

@@ -27,7 +27,7 @@ xmlns:context="http://www.springframework.org/schema/context"
 	</bean>
 	
 	<bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-		<property name="mapperInterface" value="com.huawei.gnoc.invas.admin.dao.UserDao" />
+		<property name="mapperInterface" value="com.huawei.gnoc.invas.webcore.dao.IUserDao" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
 	

@@ -33,7 +33,7 @@
  
    <filter>
        <filter-name>SessionLoginFilter</filter-name>
-       <filter-class>com.huawei.gnoc.invas.admin.filter.SessionLoginFilter</filter-class>
+       <filter-class>com.huawei.gnoc.invas.webcore.filter.SessionLoginFilter</filter-class>
    </filter>
    
    <filter-mapping>
