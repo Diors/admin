@@ -55,6 +55,11 @@ $(function() {
 });
 
 
+function pagewrapperSetHtml(data){
+	
+}
+
+
 $(function() {
 	$(".finalMenu").each(function() {
 		$(this).click(function(event) {
@@ -67,3 +72,5 @@ $(function() {
 		});
 	});
 });
+
+

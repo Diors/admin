@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huawei.gnoc.invas.webcore.dao.IUserDao">
-    <select id="selectNextUserIdSeq" resultType="long">
-      
-    </select>
+	<select id="selectNextUserIdSeq" resultType="long">
+		SELECT NEXT VALUE FOR seq_admin_user_id from SYSIBM.SYSDUMMY1
+	</select>
 
-	<select id="getUserByName" parameterType="String" resultType="user">  
+	<select id="selectUserByName" parameterType="String" resultType="user">  
         <![CDATA[ 
             SELECT *
               from admin_user
              where USER_NAME=#{userName}
         ]]>
 	</select>
-	
-	<select id="selectTotalUserCnt" resultType="int">
-	     SELECT COUNT(1) FROM ADMIN_USER
+
+	<select id="selectUserById" parameterType="long" resultType="user">  
+        <![CDATA[ 
+            SELECT *
+              from admin_user
+             where USER_ID=#{userid}
+        ]]>
 	</select>
-	
+
+	<select id="selectTotalUserCnt" resultType="int">
+		SELECT COUNT(1) FROM ADMIN_USER
+	</select>
+
 	<select id="selectSomeUsers" parameterType="map" resultType="user">
 	 <![CDATA[ 
 	      SELECT * FROM 
@@ -26,27 +34,27 @@
            WHERE T.ROWNUM >= ${floor} and T.ROWNUM < ${roof}
         ]]>
 	</select>
-	
-	<insert id="insertUser" parameterType="user">
+
+	<insert id="insertUser" parameterType="map">
 	<![CDATA[ 
 	    INSERT INTO admin_USER 
 	        (USER_ID, USER_NAME, USER_PWD, PWD_ERR_CNT, LOCK_FLAG, CREATE_TIME)
 	    VALUES
-	        ( SELECT NEXT VALUE FOR seq_admin_user_id,#{userName},#{userPwd},0,0,CURRENT_TIMESTAMP)
+	        ( #{USER_ID},#{USER_NAME},#{USER_PWD},0,0,CURRENT_TIMESTAMP)
 	]]>
 	</insert>
-	
-	<update id="modifyUserPwd" parameterType="map">
-	     UPDATE admin_USER 
-	        SET USER_PWD=#{userPwd}, 
-	            MODIFY_TIME=CURRENT_TIMESTAMP
-	      WHERE USER_ID=#{userId}
+
+	<update id="updateUserPwd" parameterType="map">
+		UPDATE admin_USER
+		SET USER_PWD=#{userPwd},
+		MODIFY_TIME=CURRENT_TIMESTAMP
+		WHERE USER_ID=#{userId}
 	</update>
-	
-	<update id="modifyAfterLogin" parameterType="long">
-	      UPDATE admin_USER 
-	        SET PWD_ERR_CNT=0, 
-	            LAST_LOGIN_TIME=CURRENT_TIMESTAMP
-	      WHERE USER_ID=#{userId}
+
+	<update id="updateLastLoginTime" parameterType="long">
+		UPDATE admin_USER
+		SET PWD_ERR_CNT=0,
+		LAST_LOGIN_TIME=CURRENT_TIMESTAMP
+		WHERE USER_ID=#{userId}
 	</update>
 </mapper>  

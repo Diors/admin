@@ -13,7 +13,9 @@ xmlns:context="http://www.springframework.org/schema/context"
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
-		<property name="url" value="jdbc:derby:D:\\software\\tomcat\\database" />
+		<property name="url" value="jdbc:derby:D:\\GNOC-Workspace\\db" />
+		<property name="username" value="invas"/>
+		<property name="password" value="invas"/>
 	</bean>
 
 	<bean id="transactionManager"

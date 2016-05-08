@@ -26,7 +26,7 @@ public class SessionController extends AbstractSessionController{
 	public Map<String,String> login(HttpServletRequest request ) throws IOException, Exception {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password").toUpperCase();
-		IUser user = userDao.getUserByName(username);
+		IUser user = userDao.selectUserByName(username);
 		Map<String,String> resultMap = new HashMap<String,String>();
 		if(user == null){
 			resultMap.put("Result", "Failure");
