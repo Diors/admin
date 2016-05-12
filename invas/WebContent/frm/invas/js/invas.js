@@ -64,10 +64,10 @@ $(function() {
 	$(".finalMenu").each(function() {
 		$(this).click(function(event) {
 			var sidebarUrl = $(event.target).attr("sidebar");
-			$("#nav-sidebar").addClass("disabled");
+			//$("#nav-sidebar").addClass("disabled");
 			$("#nav-sidebar").load(sidebarUrl);
 			var pageWaperUrl = $(event.target).attr("pagewrapper");
-			$("#page-wrapper").addClass("disabled");
+			//$("#page-wrapper").addClass("disabled");
 			$("#page-wrapper").load(pageWaperUrl);
 		});
 	});

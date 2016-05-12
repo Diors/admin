@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -8,15 +8,34 @@ xmlns:context="http://www.springframework.org/schema/context"
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
-    <context:annotation-config />
-
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
-		<property name="url" value="jdbc:derby:D:\\GNOC-Workspace\\db" />
-		<property name="username" value="invas"/>
-		<property name="password" value="invas"/>
+	<context:annotation-config />
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="/WEB-INF/spring/database-config.properties" />
 	</bean>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${driver}" />
+		<property name="jdbcUrl" value="${url}" />
+		<property name="user" value="${username}" />
+		<property name="password" value="${password}" />
+		<property name="initialPoolSize" value="${initialPoolSize}" />
+		<property name="minPoolSize" value="${minPoolSize}" />
+		<property name="maxPoolSize" value="${maxPoolSize}" />
+		<property name="maxIdleTime" value="${maxIdleTime}" />
+		<property name="acquireIncrement" value="${acquireIncrement}" />
+		<property name="idleConnectionTestPeriod" value="${idleConnectionTestPeriod}" />
+		<property name="acquireRetryAttempts" value="${acquireRetryAttempts}" />
+		<property name="breakAfterAcquireFailure" value="${breakAfterAcquireFailure}" />
+		<property name="maxStatements" value="${maxStatements}" />
+		<property name="testConnectionOnCheckout" value="${testConnectionOnCheckout}" />
+	</bean>
+
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" 
+		/> <property name="url" value="jdbc:derby:D:\\GNOC-Workspace\\db" /> <property 
+		name="username" value="invas"/> <property name="password" value="invas"/> 
+		</bean> -->
 
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -27,10 +46,15 @@ xmlns:context="http://www.springframework.org/schema/context"
 		<property name="configLocation" value="WEB-INF/mybatis/mybatis-config.xml" />
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
 		<property name="mapperInterface" value="com.huawei.gnoc.invas.webcore.dao.IUserDao" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
-	
+
+	<bean id="issueDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.huawei.gnoc.invas.manager.dao.IIssueDao" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+
 </beans>

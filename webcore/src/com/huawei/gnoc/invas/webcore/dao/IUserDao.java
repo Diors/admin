@@ -1,12 +1,13 @@
 package com.huawei.gnoc.invas.webcore.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.huawei.gnoc.invas.core.utils.Variable;
 import com.huawei.gnoc.invas.webcore.model.IUser;
 
 public interface IUserDao {
-	public long selectNextUserIdSeq();
+	public BigDecimal selectNextUserIdSeq();
 	public IUser selectUserByName(String username);
 	public IUser selectUserById(long userid);
 	

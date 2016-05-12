@@ -1,5 +1,7 @@
 package com.huawei.gnoc.invas.webcore.model.impl;
 
+import java.math.BigDecimal;
+
 import com.huawei.gnoc.invas.core.exception.BasicException;
 import com.huawei.gnoc.invas.core.utils.Variable;
 import com.huawei.gnoc.invas.webcore.model.IUser;
@@ -7,9 +9,9 @@ import com.huawei.gnoc.invas.webcore.model.IUser;
 public class User extends Variable implements IUser {
 	private static final long serialVersionUID = 1151688727782846577L;
 
-	public long getUserId() {
+	public BigDecimal getUserId() {
 		Object obj = super.get(IUser.USER_ID);
-		return (Long) obj;
+		return (BigDecimal) obj;
 	}
 
 	public String getUserName() {

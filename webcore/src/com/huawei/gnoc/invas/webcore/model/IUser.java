@@ -1,5 +1,7 @@
 package com.huawei.gnoc.invas.webcore.model;
 
+import java.math.BigDecimal;
+
 import com.huawei.gnoc.invas.core.exception.BasicException;
 
 public interface IUser {
@@ -15,7 +17,7 @@ public interface IUser {
 	public static final String STATUS_LOCK = "Locked";
 	public static final String STATUS_UNLOCK = "Active";
 	
-	public long getUserId();
+	public BigDecimal getUserId();
 	public String getUserName() throws BasicException;
 	public String getUserPwd() throws BasicException;
 	public int getPwdErrCnt();

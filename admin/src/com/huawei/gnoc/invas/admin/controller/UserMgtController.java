@@ -1,5 +1,6 @@
 package com.huawei.gnoc.invas.admin.controller;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,12 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
 
 import com.huawei.gnoc.invas.core.utils.Variable;
 import com.huawei.gnoc.invas.webcore.dao.IUserDao;
 import com.huawei.gnoc.invas.webcore.model.IUser;
-import com.huawei.gnoc.invas.webcore.model.impl.User;
 
 @Controller
 @RequestMapping(value = "admin/usermgt/")
@@ -64,7 +63,7 @@ public class UserMgtController {
 			resultMap.put("result", "1");
 			resultMap.put("message", "User " + username + " exists.");
 		} else {
-			long userId = userDao.selectNextUserIdSeq();
+			BigDecimal userId = userDao.selectNextUserIdSeq();
 			Variable param = new Variable();
 			param.put(IUser.USER_ID, userId);
 			param.put(IUser.USER_NAME, username);

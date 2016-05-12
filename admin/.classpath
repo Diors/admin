@@ -12,7 +12,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/invas/WebContent/WEB-INF/lib/commons-dbcp2-2.1.1.jar"/>
 	<classpathentry kind="lib" path="/invas/WebContent/WEB-INF/lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="/invas/WebContent/WEB-INF/lib/commons-pool2-2.4.2.jar"/>
 	<classpathentry kind="lib" path="/invas/WebContent/WEB-INF/lib/derby.jar"/>

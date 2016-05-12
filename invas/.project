@@ -6,6 +6,7 @@
 		<project>admin</project>
 		<project>core</project>
 		<project>webcore</project>
+		<project>manager</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

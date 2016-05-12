@@ -53,7 +53,6 @@ DROP SEQUENCE SEQ_STATISTIC_KPI_TYPE_ID;
 /*==============================================================*/
 /* Database: "DATABASE_1"                                       */
 /*==============================================================*/
-CREATE DATABASE "DATABASE_1";
 
 CREATE SEQUENCE SEQ_ADMIN_USER_ID
 INCREMENT BY 1
@@ -106,6 +105,9 @@ CREATE TABLE ADMIN_USER
    LAST_LOGIN_TIME      DATE,
    CONSTRAINT PK_ADMIN_USER PRIMARY KEY (USER_ID)
 );
+INSERT INTO ADMIN_USER (USER_ID,USER_NAME,USER_PWD,CREATE_TIME) 
+VALUES (0,'admin','D033E22AE348AEB5660FC2140AEC35850C4DA997',CURRENT_TIMESTAMP);
+
 
 /*==============================================================*/
 /* Table: ADMIN_USER_ATTR_TYPE                                  */

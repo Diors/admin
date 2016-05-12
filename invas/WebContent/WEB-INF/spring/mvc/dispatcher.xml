@@ -14,10 +14,11 @@
 
 	<context:component-scan base-package="com.huawei.gnoc.invas.admin.controller" />
 	<context:component-scan base-package="com.huawei.gnoc.invas.webcore.controller" />
+	<context:component-scan base-package="com.huawei.gnoc.invas.manager.controller" />
 
 	<bean
 		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
-		
+
 	<bean
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">

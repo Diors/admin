@@ -11,6 +11,9 @@
         <dependent-module archiveName="webcore.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/webcore/webcore">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="manager.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/manager/manager">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="invas"/>
         <property name="java-output-path" value="/invas/build/classes"/>
     </wb-module>

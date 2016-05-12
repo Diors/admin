@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huawei.gnoc.invas.manager.dao.IIssueDao">
+	<select id="selectNextUserIdSeq" resultType="BigDecimal">
+		select
+		SEQ_MGT_ISSUE_ID.Nextval from dual
+	</select>
+
+
+	<insert id="insertIssue">
+	     <![CDATA[ 
+	     insert into mgt_issue (ISSUE_ID,
+                                COUNTRY_ID,
+                                ISSUE_DES,
+                                SOLUTION,
+                                TROUBLESHOOTING,
+                                CREATE_DATE,
+                                EXPECT_DATE,
+                                PROGRESS,
+                                RESP_HUAWEI,
+                                RESP_ORANGE,
+                                STATUS,
+                                BLOCK_POINT,
+                                SEEK_HELP,
+                                CLOSE_DATE,
+                                OWNER,
+                                SERVICE_AFFECT,
+                                KPI_AFFECT,
+                                SR_NO)
+	                    values (${ISSUE_ID},
+                                ${COUNTRY_ID},
+                                ${ISSUE_DES},
+                                ${SOLUTION},
+                                ${TROUBLESHOOTING},
+                                ${CREATE_DATE},
+                                ${EXPECT_DATE},
+                                ${PROGRESS},
+                                ${RESP_HUAWEI},
+                                ${RESP_ORANGE},
+                                ${STATUS},
+                                ${BLOCK_POINT},
+                                ${SEEK_HELP},
+                                ${CLOSE_DATE},
+                                ${OWNER},
+                                ${SERVICE_AFFECT},
+                                ${KPI_AFFECT},
+                                ${SR_NO})
+	     ]]>
+	</insert>
+
+	<select id="selectIssueById" resultType="issue">
+		select * from mgt_issue where issue_id=${ISSUE_ID}
+	</select>
+
+	<select id="selectIssues" parameterType="map" resultType="issue">
+		select * from mgt_issue where 1=1
+		<if test="ISSUE_ID != null">
+			AND issue_id = ${ISSUE_ID}
+		</if>
+		<if test="COUNTRY_ID != null">
+		    AND COUNTRY_ID = ${COUNTRY_ID}
+		</if>
+	</select>
+</mapper>

@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GNOC-INVAS</title>
 <link href="frm/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="frm/bootstrap/datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
 <link href="frm/metisMenu/metisMenu.min.css" rel="stylesheet">
 <link href="frm/invas/css/invas.css" rel="stylesheet">
 <link href="frm/invas/css/timeline.css" rel="stylesheet">
@@ -14,9 +15,11 @@
 <link href="frm/font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
 
-<script src="frm/jquery/jquery-1.12.0.min.js"></script>
-<script src="frm/bootstrap/js/bootstrap.min.js"></script>
-<script src="frm/metisMenu/metisMenu.min.js"></script>
+<script id="js-jquery"src="frm/jquery/jquery-1.12.0.min.js"></script>
+<script id="js-bootstrap" src="frm/bootstrap/js/bootstrap.min.js"></script>
+<script id="js-moment" src="frm/moment/moment.js"></script>
+<script id="js-datetime" src="frm/bootstrap/datepicker/js/bootstrap-datepicker.min.js"></script>
+<script id="js-metisMenu" src="frm/metisMenu/metisMenu.min.js"></script>
 <script src="frm/invas/js/invas.js"></script>
 <script type="text/javascript" src="frm/invas/js/sha1.js"></script>
 
@@ -69,14 +72,14 @@
 		<ul class="nav navbar-top-links navbar-left">
 			<!-- /.dropdown Maintenance-->
 			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"> <span>Maintenance</span> <i
+				data-toggle="dropdown" href="#"> <span>Management</span> <i
 					class="fa fa-caret-down"></i>
 			</a>
 				<ul class="dropdown-menu dropdown-user">
-					<li><a href="#"><i class="fa fa-user fa-fw"></i>
-							Performance</a></li>
-					<li><a href="#"><i class="fa fa-gear fa-fw"></i> Caps
-							Overview</a></li>
+					<li><a href="#" class="finalMenu"
+						sidebar="manager/issue_change/siderbar.do"
+						pagewrapper="manager/issue_change/pageWapper.do"><i class="fa fa-user fa-fw"></i>Issue&Change</a></li>
+					<li><a href="#"><i class="fa fa-gear fa-fw"></i></a></li>
 				</ul></li>
 		</ul>
 
@@ -125,7 +128,6 @@
 							<li><a href="typography.html">Typography</a></li>
 							<li><a href="icons.html"> Icons</a></li>
 							<li><a href="grid.html">Grid</a></li>
-
 						</ul> <!-- /.nav-second-level --></li>
 					<li><a href="#"><i class="fa fa-sitemap fa-fw"></i>
 							Multi-Level Dropdown<span class="fa arrow"></span></a>

@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="user" type="com.huawei.gnoc.invas.webcore.model.impl.User"/>
+		<typeAlias alias="issue" type="com.huawei.gnoc.invas.manager.model.impl.Issue"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="com/huawei/gnoc/invas/webcore/dao/mapper/user-mapper.xml"/>
+		<mapper resource="com/huawei/gnoc/invas/manager/dao/mapper/issue-mapper.xml"/>
 	</mappers>
 </configuration>
